@@ -1,69 +1,29 @@
-// src/components/Navbar.tsx
-import React, { useState } from 'react';
+import { motion } from "framer-motion";
+import { NAV_LINKS } from "../data/constants";
 
-const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
+export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 w-full bg-slate-900/90 backdrop-blur-md text-white z-50 border-b border-slate-800">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#" className="text-xl font-bold tracking-tight text-indigo-400 hover:text-indigo-300 transition">
-          Parth Jain<span className="text-white">.dev</span>
-        </a>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex space-x-8 text-sm font-medium">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-slate-300 hover:text-indigo-400 transition"
-            >
-              {link.name}
-            </a>
+    <motion.nav 
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="fixed top-0 w-full z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md"
+    >
+      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+        <span className="text-zinc-50 font-semibold tracking-tight text-lg">Parth.dev</span>
+        <ul className="flex items-center gap-6">
+          {NAV_LINKS.map((link) => (
+            <li key={link.name}>
+              <a 
+                href={link.href} 
+                className="text-sm font-medium text-zinc-400 hover:text-zinc-50 transition-colors"
+              >
+                {link.name}
+              </a>
+            </li>
           ))}
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-slate-300 hover:text-white focus:outline-none"
-          aria-label="Toggle Menu"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {isOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+        </ul>
       </div>
-
-      {/* Mobile Nav Links */}
-      {isOpen && (
-        <div className="md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 space-y-3">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="block text-slate-300 hover:text-indigo-400 transition"
-            >
-              {link.name}
-            </a>
-          ))}
-        </div>
-      )}
-    </nav>
+    </motion.nav>
   );
-};
-
-export default Navbar;
+}
