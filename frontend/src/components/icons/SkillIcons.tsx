@@ -177,10 +177,70 @@ export const IconVercel = ({ className }: IconProps) => (
   </svg>
 );
 
+// --- New Icons Added Below ---
+
+export const IconSQL = ({ className }: IconProps) => (
+  <svg className={className} {...base}>
+    <ellipse cx="12" cy="5" rx="9" ry="3" />
+    <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
+    <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3" />
+  </svg>
+);
+
+export const IconGraphQL = ({ className }: IconProps) => (
+  <svg className={className} {...base}>
+    <path d="M12 3l8.5 5v9L12 22l-8.5-5V8z" />
+    <circle cx="12" cy="3" r="1.5" fill="currentColor" />
+    <circle cx="3.5" cy="8" r="1.5" fill="currentColor" />
+    <circle cx="20.5" cy="8" r="1.5" fill="currentColor" />
+    <circle cx="7.5" cy="18" r="1.5" fill="currentColor" />
+    <circle cx="16.5" cy="18" r="1.5" fill="currentColor" />
+    <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+    <path d="M12 3v9M3.5 8l8.5 4M20.5 8l-8.5 4M7.5 18l4.5-6M16.5 18l-4.5-6" />
+  </svg>
+);
+
+export const IconDocker = ({ className }: IconProps) => (
+  <svg className={className} {...base}>
+    <path d="M4 14h16v3H4z" />
+    <path d="M4 10h4v4H4zM9 10h4v4H9zM14 10h4v4h-4zM9 6h4v4H9z" />
+    <path d="M18 14v-2h-3" />
+  </svg>
+);
+
+export const IconRender = ({ className }: IconProps) => (
+  <svg className={className} {...base}>
+    <path d="M17.5 17H6.5a4.5 4.5 0 0 1-1-8.89 6.5 6.5 0 0 1 12.87 0A4.5 4.5 0 0 1 17.5 17z" />
+  </svg>
+);
+
+export const IconJava = ({ className }: IconProps) => (
+  <svg className={className} {...base}>
+    <path d="M18 9h1a4 4 0 0 1 0 8h-1" />
+    <path d="M2 9h16v7a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V9z" />
+    <path d="M6 2v3M10 2v3M14 2v3" />
+  </svg>
+);
+
+export const IconFlask = ({ className }: IconProps) => (
+  <svg className={className} {...base}>
+    <path d="M9 3h6" />
+    <path d="M10 3v6l-4 10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l-4-10V3" />
+    <path d="M7 16h10" />
+  </svg>
+);
+
+export const IconNextjs = ({ className }: IconProps) => (
+  <svg className={className} {...base}>
+    <circle cx="12" cy="12" r="10" />
+    <path d="M8 8v8l7.5 7.5M16 16V8" />
+  </svg>
+);
+
 export const SkillIconMap: Record<string, React.ComponentType<IconProps>> = {
   react: IconReact,
-  javascript: IconJS,
-  typescript: IconTS,
+  javascript: IconJS, // Used for JS
+  typescript: IconTS, // Used for TS
   html: IconHTML,
   css: IconCSS,
   tailwind: IconTailwind,
@@ -200,4 +260,12 @@ export const SkillIconMap: Record<string, React.ComponentType<IconProps>> = {
   npm: IconNpm,
   postman: IconPostman,
   vercel: IconVercel,
+  // newly mapped icons
+  sql: IconSQL,
+  graphql: IconGraphQL,
+  docker: IconDocker,
+  render: IconRender,
+  java: IconJava,
+  flask: IconFlask,
+  nextjs: IconNextjs,
 };

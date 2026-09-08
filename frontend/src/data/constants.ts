@@ -62,6 +62,7 @@ export const SKILLS: SkillCategory[] = [
       { name: 'HTML5', description: 'Semantic markup, accessibility fundamentals', icon: 'html' },
       { name: 'CSS3', description: 'Responsive layouts, animations, modern selectors', icon: 'css' },
       { name: 'Tailwind CSS', description: 'Utility-first styling, design systems', icon: 'tailwind' },
+      { name: "Next.js",description:"", icon: "nextjs" },
     ],
   },
   {
@@ -73,6 +74,7 @@ export const SKILLS: SkillCategory[] = [
       { name: 'Socket.io', description: 'Real-time bidirectional communication', icon: 'socketio' },
       { name: 'JWT', description: 'Secure authentication & authorization pipelines', icon: 'jwt' },
       { name: 'REST APIs', description: 'Resource-oriented design, versioning, error handling', icon: 'api' },
+      { name: "Flask",description:"" ,icon: "flask" }
     ],
   },
   {
@@ -81,6 +83,9 @@ export const SKILLS: SkillCategory[] = [
     skills: [
       { name: 'MongoDB', description: 'NoSQL data modeling, aggregation pipelines', icon: 'mongodb' },
       { name: 'Mongoose', description: 'ODM schemas, validations, middleware hooks', icon: 'mongoose' },
+      { name: "GraphQL",description:"", icon: "graphql" },
+      { name: "SQL",description:"", icon: "sql" },
+
     ],
   },
   {
@@ -90,6 +95,9 @@ export const SKILLS: SkillCategory[] = [
       { name: 'Python', description: 'Scripting, data processing, automation', icon: 'python' },
       { name: 'BeautifulSoup', description: 'Web scraping, data extraction & cleaning', icon: 'beautifulsoup' },
       { name: 'C++', description: 'OOP fundamentals, data structures, algorithms', icon: 'cpp' },
+      { name: "Java",description:"", icon: "java" },
+      { name: "JavaScript",description:"", icon: "javascript" },
+      { name: "TypeScript",description:"", icon: "typescript" },
     ],
   },
   {
@@ -102,6 +110,8 @@ export const SKILLS: SkillCategory[] = [
       { name: 'npm', description: 'Package management, scripts, monorepos', icon: 'npm' },
       { name: 'Postman', description: 'API testing, collections, documentation', icon: 'postman' },
       { name: 'Vercel', description: 'CI/CD, deployments, preview branches', icon: 'vercel' },
+      { name: "Docker",description:"", icon: "docker" },
+      { name: "Render",description:"", icon: "render" },
     ],
   },
 ];
