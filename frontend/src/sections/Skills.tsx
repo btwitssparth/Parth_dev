@@ -19,12 +19,13 @@ export default function Skills() {
       />
 
       <Reveal>
-        <Tabs defaultValue={SKILLS[0].id} className="w-full">
+        <Tabs defaultValue={SKILLS[0]?.id} className="w-full">
           <div className="w-full overflow-x-auto pb-2 -mx-1 px-1">
             <TabsList className="min-w-max">
               {SKILLS.map((cat) => (
                 <TabsTrigger key={cat.id} value={cat.id}>
-                  {cat.label}
+                  {/* Failsafe: Ensure label renders as a string to prevent object crashes */}
+                  {typeof cat.label === 'string' ? cat.label : String(cat.label)}
                 </TabsTrigger>
               ))}
             </TabsList>
@@ -36,6 +37,10 @@ export default function Skills() {
                 {cat.skills.map((skill, idx) => {
                   const Icon = SkillIconMap[skill.icon];
                   const isHover = hovered === skill.name;
+                  
+                  // Failsafe: safely grab the first letter if the name is a valid string
+                  const fallbackChar = typeof skill.name === 'string' ? skill.name.charAt(0) : '?';
+
                   return (
                     <Card
                       key={skill.name}
@@ -65,20 +70,26 @@ export default function Skills() {
                                 : 'border-border bg-muted text-foreground'
                             )}
                           >
+                            {/* Failsafe: Handles if Icon is a React Element OR a Component Type */}
                             {Icon ? (
-                              <Icon className="h-5 w-5" />
+                              React.isValidElement(Icon) ? (
+                                React.cloneElement(Icon as React.ReactElement, { className: "h-5 w-5" } as React.HTMLAttributes<HTMLElement>)
+                              ) : (
+                                // @ts-expect-error - Fallback for standard component functions
+                                <Icon className="h-5 w-5" />
+                              )
                             ) : (
                               <span className="font-bold text-sm">
-                                {skill.name[0]}
+                                {fallbackChar}
                               </span>
                             )}
                           </div>
                           <div className="flex-1 min-w-0">
                             <h4 className="font-semibold text-foreground text-[15px]">
-                              {skill.name}
+                              {typeof skill.name === 'string' ? skill.name : String(skill.name)}
                             </h4>
                             <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
-                              {skill.description}
+                              {typeof skill.description === 'string' ? skill.description : String(skill.description)}
                             </p>
                           </div>
                         </div>
