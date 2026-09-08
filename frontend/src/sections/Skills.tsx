@@ -75,7 +75,7 @@ export default function Skills() {
                               React.isValidElement(Icon) ? (
                                 React.cloneElement(Icon as React.ReactElement, { className: "h-5 w-5" } as React.HTMLAttributes<HTMLElement>)
                               ) : (
-                                // @ts-expect-error - Fallback for standard component functions
+                               
                                 <Icon className="h-5 w-5" />
                               )
                             ) : (
