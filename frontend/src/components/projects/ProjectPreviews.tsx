@@ -208,7 +208,8 @@ export function ProjectPreviewData({ className }: PreviewProps) {
             { t: '', c: <><span className="text-accent">def</span> <span className="text-foreground">extract_specs</span>(url: <span className="text-accent">str</span>):</> },
             { t: 'ind', c: <>response = requests.get(url, headers=UA)</> },
             { t: 'ind', c: <>soup = BeautifulSoup(response.text, <span className="text-success">'html.parser'</span>)</> },
-            { t: 'ind', c: <>raw = {{}}</> },
+            // THE FIX: Properly stringifying the Python braces so React doesn't read them as a Javascript object
+            { t: 'ind', c: <>raw = {'{}'}</> },
             { t: 'ind', c: <><span className="text-accent">for</span> row <span className="text-accent">in</span> soup.select(<span className="text-success">'table.specs tr'</span>):</> },
             { t: 'ind2', c: <>key, val = clean(row)</> },
             { t: 'ind2', c: <>raw[key] = normalize(val)</> },
