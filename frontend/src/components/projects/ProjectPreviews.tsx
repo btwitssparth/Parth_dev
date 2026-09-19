@@ -291,9 +291,90 @@ export function ProjectPreviewAPI({ className }: PreviewProps) {
   );
 }
 
+export function ProjectPreviewResume({ className }: PreviewProps) {
+  return (
+    <WindowShell className={className} title="ai-resume-optimizer.app · analyzer" tag="AI">
+      <div className="h-full flex flex-col bg-background text-[12px]">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-border">
+          <div>
+            <div className="font-bold text-sm tracking-tight text-foreground">
+              AI<span className="text-accent">Resume Optimizer</span>
+            </div>
+            <div className="text-[10px] text-muted-foreground mt-0.5">
+              ATS analysis & resume builder
+            </div>
+          </div>
+          <div className="rounded-md border border-border bg-muted px-2 py-1 text-[10px] font-mono text-muted-foreground">
+            Gemini
+          </div>
+        </div>
+
+        <div className="p-3 sm:p-4 flex-1 overflow-hidden">
+          <div className="grid grid-cols-2 gap-3 h-full">
+            <div className="rounded-lg border border-border bg-card p-3">
+              <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                ATS Match
+              </div>
+              <div className="mt-2 text-3xl font-bold text-foreground">78</div>
+              <div className="mt-1 text-[10px] text-success">Good match</div>
+              <div className="mt-4 h-2 rounded-full bg-muted overflow-hidden">
+                <div className="h-full w-[78%] rounded-full bg-accent" />
+              </div>
+            </div>
+
+            <div className="rounded-lg border border-border bg-card p-3">
+              <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                Missing keywords
+              </div>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {['Docker', 'CI/CD', 'REST API'].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-md border border-border bg-muted px-2 py-1 text-[10px] text-foreground"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="col-span-2 rounded-lg border border-border bg-card p-3">
+              <div className="flex items-center justify-between">
+                <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                  Suggested edits
+                </div>
+                <span className="text-[10px] text-muted-foreground">3 selected</span>
+              </div>
+              <div className="mt-2 space-y-2">
+                {[
+                  'Highlight relevant backend experience',
+                  'Move projects above education',
+                  'Add existing API experience to skills'
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-2 rounded-md bg-muted/50 p-2">
+                    <span className="mt-0.5 h-3 w-3 rounded-sm bg-accent/20 border border-accent/40 shrink-0" />
+                    <span className="text-[10px] leading-relaxed text-foreground">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="px-4 py-2.5 border-t border-border flex items-center gap-2 text-[10px] font-mono text-muted-foreground">
+          <span className="h-1.5 w-1.5 rounded-full bg-success" />
+          Facts preserved · PostgreSQL · Clerk auth
+        </div>
+      </div>
+    </WindowShell>
+  );
+}
+
+
 export const PreviewRegistry: Record<string, React.ComponentType<PreviewProps>> = {
   'code-marketplace': ProjectPreviewMarketplace,
   'code-tasks': ProjectPreviewTasks,
   'code-data': ProjectPreviewData,
   'code-api': ProjectPreviewAPI,
+  'code-resume': ProjectPreviewResume,
 };
