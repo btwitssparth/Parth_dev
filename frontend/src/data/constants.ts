@@ -136,6 +136,45 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    id: 'ai-resume-optimizer',
+    title: 'AI Resume Optimizer',
+    description:
+      'An ATS-focused resume analyzer and builder that compares resumes against job descriptions, identifies missing keywords, suggests edits, and generates updated resumes without fabricating facts.',
+    longDescription:
+      'AI Resume Optimizer is a full-stack application for improving resumes against specific job descriptions. Users upload a PDF resume, provide a job description, receive an ATS match score with missing keywords and actionable edits, selectively regenerate accepted changes, and build structured resumes with PDF export.',
+    problem:
+      'Generic resume reviews do not clearly show how well a resume matches a specific role, while AI-assisted rewriting can introduce fabricated skills, metrics, employers, or dates.',
+    solution:
+      'Built a protected full-stack workflow that extracts PDF text, sends structured analysis requests to Gemini, persists resumes and scans per authenticated user, and constrains regeneration to facts already present in the original resume.',
+    tags: ['React', 'TypeScript', 'Flask', 'PostgreSQL', 'Gemini', 'Clerk'],
+    tagsFull: [
+      { name: 'React', category: 'Frontend' },
+      { name: 'TypeScript', category: 'Frontend' },
+      { name: 'Flask', category: 'Backend' },
+      { name: 'PostgreSQL', category: 'Database' },
+      { name: 'Google Gemini', category: 'AI' },
+      { name: 'Clerk', category: 'Authentication' },
+    ],
+    link: 'https://ai-resume-optimizer-one-tau.vercel.app',
+    github: 'https://github.com/btwitssparth/ai_resume_optimizer',
+    featured: true,
+    category: 'fullstack',
+    keyFeatures: [
+      'ATS match scoring with missing keyword detection',
+      'Selective AI regeneration using only existing resume facts',
+      'Structured resume builder with PDF export',
+      'Clerk authentication with per-user data isolation',
+      'PDF validation, upload limits, CORS allow-list, and consistent API errors',
+      'Persistent resume scans and builder documents in PostgreSQL',
+    ],
+    challenges: [
+      'Designing structured Gemini responses that remain predictable for the UI',
+      'Preventing AI regeneration from inventing resume facts or metrics',
+      'Keeping authentication and user-scoped database access consistent across frontend and Flask API',
+    ],
+    imagePlaceholder: 'code-resume',
+  },
+  {
     id: 'lend-sphere',
     title: 'Lend-Sphere',
     description:
