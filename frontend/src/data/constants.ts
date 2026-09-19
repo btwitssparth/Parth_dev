@@ -136,6 +136,43 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    id: 'lend-sphere',
+    title: 'Lend-Sphere',
+    description:
+      'A decentralized peer-to-peer marketplace for electronics and appliance rentals featuring algorithmic double-booking prevention and real-time WebSocket chat.',
+    longDescription:
+      'Lend-Sphere connects users who want to rent out underused electronics and appliances with those who need them short-term. The platform handles listings, bookings, secure user accounts, and real-time conversations between owners and renters.',
+    problem:
+      'P2P rental marketplaces suffer from double-booking conflicts, lack of transparency in real-time communication, and fragmented trust systems that discourage participation.',
+    solution:
+      'Built an algorithmic availability engine that validates booking windows across the entire platform before confirming, and integrated Socket.io for real-time chat that keeps conversations attached to specific listings.',
+    tags: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Socket.io'],
+    tagsFull: [
+      { name: 'MongoDB', category: 'Database' },
+      { name: 'Express.js', category: 'Backend' },
+      { name: 'React.js', category: 'Frontend' },
+      { name: 'Node.js', category: 'Runtime' },
+      { name: 'Socket.io', category: 'Real-time' },
+    ],
+    link: 'https://lend-sphere.vercel.app/',
+    github: 'https://github.com/btwitssparth/Lend-Sphere',
+    featured: true,
+    category: 'fullstack',
+    keyFeatures: [
+      'Algorithmic double-booking prevention engine',
+      'Real-time WebSocket chat per listing',
+      'Secure JWT authentication with role-based access',
+      'Complex database schema for listings, bookings & users',
+      'Responsive search & filter system',
+    ],
+    challenges: [
+      'Designing a correct booking-conflict resolution algorithm that scaled',
+      'Attaching realtime conversations to specific listings with history',
+      'Modeling relational data in MongoDB with proper indexing',
+    ],
+    imagePlaceholder: 'code-marketplace',
+  },,
+  {
     id: 'ai-resume-optimizer',
     title: 'AI Resume Optimizer',
     description:
@@ -173,43 +210,6 @@ export const PROJECTS: Project[] = [
       'Keeping authentication and user-scoped database access consistent across frontend and Flask API',
     ],
     imagePlaceholder: 'code-resume',
-  },
-  {
-    id: 'lend-sphere',
-    title: 'Lend-Sphere',
-    description:
-      'A decentralized peer-to-peer marketplace for electronics and appliance rentals featuring algorithmic double-booking prevention and real-time WebSocket chat.',
-    longDescription:
-      'Lend-Sphere connects users who want to rent out underused electronics and appliances with those who need them short-term. The platform handles listings, bookings, secure user accounts, and real-time conversations between owners and renters.',
-    problem:
-      'P2P rental marketplaces suffer from double-booking conflicts, lack of transparency in real-time communication, and fragmented trust systems that discourage participation.',
-    solution:
-      'Built an algorithmic availability engine that validates booking windows across the entire platform before confirming, and integrated Socket.io for real-time chat that keeps conversations attached to specific listings.',
-    tags: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Socket.io'],
-    tagsFull: [
-      { name: 'MongoDB', category: 'Database' },
-      { name: 'Express.js', category: 'Backend' },
-      { name: 'React.js', category: 'Frontend' },
-      { name: 'Node.js', category: 'Runtime' },
-      { name: 'Socket.io', category: 'Real-time' },
-    ],
-    link: 'https://lend-sphere.vercel.app/',
-    github: 'https://github.com/btwitssparth/Lend-Sphere',
-    featured: true,
-    category: 'fullstack',
-    keyFeatures: [
-      'Algorithmic double-booking prevention engine',
-      'Real-time WebSocket chat per listing',
-      'Secure JWT authentication with role-based access',
-      'Complex database schema for listings, bookings & users',
-      'Responsive search & filter system',
-    ],
-    challenges: [
-      'Designing a correct booking-conflict resolution algorithm that scaled',
-      'Attaching realtime conversations to specific listings with history',
-      'Modeling relational data in MongoDB with proper indexing',
-    ],
-    imagePlaceholder: 'code-marketplace',
   },
   {
     id: 'taskflow',
