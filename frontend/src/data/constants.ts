@@ -281,41 +281,6 @@ export const PROJECTS: Project[] = [
     ],
     imagePlaceholder: 'code-data',
   },
-  {
-    id: 'youtube-backend',
-    title: 'YouTube Backend Simulation',
-    description:
-      'A comprehensive RESTful API simulating core video platform functionalities, including optimized routes for user management, media handling, and comment threading.',
-    longDescription:
-      'A backend-focused project that models the essential behaviors of a video platform: users, channels, videos, likes, subscriptions, and threaded comments — all exposed as a clean REST API.',
-    problem:
-      'Platforms like YouTube have complex nested data relationships (comments, replies, nested likes) that are non-trivial to model and query efficiently.',
-    solution:
-      'Designed a schema-first backend in Express + MongoDB with properly referenced documents, indexed query paths, and purpose-built endpoints to handle threaded comments and aggregated counts.',
-    tags: ['Node.js', 'Express.js', 'MongoDB', 'REST API'],
-    tagsFull: [
-      { name: 'Node.js', category: 'Runtime' },
-      { name: 'Express.js', category: 'Backend' },
-      { name: 'MongoDB', category: 'Database' },
-      { name: 'REST API', category: 'Protocol' },
-    ],
-    github: 'https://github.com/btwitssparth',
-    featured: false,
-    category: 'backend',
-    keyFeatures: [
-      'RESTful routing for users, videos, comments & subscriptions',
-      'Threaded comment replies with proper nesting',
-      'Optimized query patterns with indexed lookups',
-      'Error handling & consistent response envelopes',
-      'Video metadata + stats aggregation',
-    ],
-    challenges: [
-      'Modeling nested comment replies efficiently',
-      'Keeping like/subscription counts eventually consistent',
-      'Ensuring each endpoint uses indexed queries',
-    ],
-    imagePlaceholder: 'code-api',
-  },
 ];
 
 export const JOURNEY = [
