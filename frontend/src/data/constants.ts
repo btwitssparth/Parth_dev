@@ -173,40 +173,86 @@ export const PROJECTS: Project[] = [
     imagePlaceholder: 'code-marketplace',
   },
   {
-    id: 'taskflow',
-    title: 'TaskFlow',
+    id: 'insight-ai',
+    title: 'InsightAI',
     description:
-      'A scalable task management application featuring robust user authentication, authorization pipelines utilizing JWT, and secure cookie-based sessions.',
+      'An AI-powered data analyst that turns CSV and Excel datasets into verified analysis, visualizations, and evidence-backed insights through natural-language questions.',
     longDescription:
-      'TaskFlow is a production-grade task management platform focused on secure authentication and clean UX. Users can create projects, organize tasks by status, collaborate through ownership, and stay signed in securely.',
+      'InsightAI is a full-stack data analysis application. Users upload CSV or XLSX datasets, inspect data profiles, and ask questions in natural language. Gemini translates a question into a structured analysis plan, Pydantic validates it, and a Pandas-based engine executes the calculations against the actual dataset before Gemini explains the verified results.',
     problem:
-      'Many beginner task-management apps skip serious auth, session handling, and proper permission checks leading to vulnerable implementations.',
+      'Using an LLM alone to answer data questions can produce unsupported or incorrect numerical results, while manual exploration of large spreadsheets can be slow and repetitive.',
     solution:
-      'Implemented a complete auth stack with JWT access tokens, refresh tokens in HTTP-only secure cookies, input validation, role-based task ownership checks, and protected API routes.',
-    tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
+      'Designed a multi-stage analysis pipeline that separates AI planning from deterministic computation: structured plans are validated before execution, Pandas calculates the results, and the insight generator explains only the computed output. Supabase provides authentication, PostgreSQL persistence, and private dataset storage.',
+    tags: ['React', 'TypeScript', 'FastAPI', 'Python', 'Pandas', 'Gemini', 'Supabase'],
     tagsFull: [
-      { name: 'React.js', category: 'Frontend' },
-      { name: 'Node.js', category: 'Runtime' },
-      { name: 'Express.js', category: 'Backend' },
-      { name: 'MongoDB', category: 'Database' },
-      { name: 'JWT', category: 'Auth' },
+      { name: 'React', category: 'Frontend' },
+      { name: 'TypeScript', category: 'Frontend' },
+      { name: 'FastAPI', category: 'Backend' },
+      { name: 'Python', category: 'Language' },
+      { name: 'Pandas', category: 'Data Analysis' },
+      { name: 'Google Gemini', category: 'AI' },
+      { name: 'Supabase PostgreSQL', category: 'Database' },
+      { name: 'Supabase Storage', category: 'Storage' },
     ],
-    github: 'https://github.com/btwitssparth',
+    link: 'https://insight-ai-puce.vercel.app/dashboard',
+    github: 'https://github.com/btwitssparth/InsightAI',
     featured: true,
     category: 'fullstack',
     keyFeatures: [
-      'JWT authentication + secure refresh-token cookies',
-      'Project-level role authorization',
-      'CRUD operations for tasks with drag-and-drop status',
-      'Input validation and sanitization on all endpoints',
-      'Protected routes on both client and server',
+      'CSV and XLSX upload with dataset preview, profiling, missing-value and duplicate-row insights',
+      'Natural-language questions translated into validated multi-step analysis plans',
+      'Pandas execution for grouped summaries, filtering, sorting, comparisons, shares, correlations, and time grouping',
+      'Bar, line, and pie visualizations generated from computed results',
+      'Evidence-backed AI explanations and contextual follow-up questions',
+      'Supabase authentication, owner-scoped dataset and analysis access, and private file storage',
+      'Persistent analysis history for revisiting previous questions and results',
     ],
     challenges: [
-      'Implementing a silent refresh flow without UX flicker',
-      'Ensuring task actions respect ownership scopes',
-      'Balancing session security with practical UX',
+      'Separating LLM planning and explanation from deterministic numerical computation',
+      'Validating model-generated plans and safely executing supported analysis operations',
+      'Keeping uploaded datasets and analysis records isolated to the authenticated owner',
+      'Handling varied data types, missing values, and Pandas results safely for API responses and visualizations',
     ],
-    imagePlaceholder: 'code-tasks',
+    imagePlaceholder: 'code-insight-ai',
+  },
+  {
+    id: 'ai-resume-optimizer',
+    title: 'AI Resume Optimizer',
+    description:
+      'An ATS-focused resume analyzer and builder that compares resumes against job descriptions, identifies missing keywords, suggests edits, and generates updated resumes without fabricating facts.',
+    longDescription:
+      'AI Resume Optimizer is a full-stack application for improving resumes against specific job descriptions. Users upload a PDF resume, provide a job description, receive an ATS match score with missing keywords and actionable edits, selectively regenerate accepted changes, and build structured resumes with PDF export.',
+    problem:
+      'Generic resume reviews do not clearly show how well a resume matches a specific role, while AI-assisted rewriting can introduce fabricated skills, metrics, employers, or dates.',
+    solution:
+      'Built a protected full-stack workflow that extracts PDF text, sends structured analysis requests to Gemini, persists resumes and scans per authenticated user, and constrains regeneration to facts already present in the original resume.',
+    tags: ['React', 'TypeScript', 'Flask', 'PostgreSQL', 'Gemini', 'Clerk'],
+    tagsFull: [
+      { name: 'React', category: 'Frontend' },
+      { name: 'TypeScript', category: 'Frontend' },
+      { name: 'Flask', category: 'Backend' },
+      { name: 'PostgreSQL', category: 'Database' },
+      { name: 'Google Gemini', category: 'AI' },
+      { name: 'Clerk', category: 'Authentication' },
+    ],
+    link: 'https://ai-resume-optimizer-one-tau.vercel.app',
+    github: 'https://github.com/btwitssparth/ai_resume_optimizer',
+    featured: true,
+    category: 'fullstack',
+    keyFeatures: [
+      'ATS match scoring with missing keyword detection',
+      'Selective AI regeneration using only existing resume facts',
+      'Structured resume builder with PDF export',
+      'Clerk authentication with per-user data isolation',
+      'PDF validation, upload limits, CORS allow-list, and consistent API errors',
+      'Persistent resume scans and builder documents in PostgreSQL',
+    ],
+    challenges: [
+      'Designing structured Gemini responses that remain predictable for the UI',
+      'Preventing AI regeneration from inventing resume facts or metrics',
+      'Keeping authentication and user-scoped database access consistent across frontend and Flask API',
+    ],
+    imagePlaceholder: 'code-resume',
   },
   {
     id: 'smart-product-matching',
@@ -242,43 +288,7 @@ export const PROJECTS: Project[] = [
     ],
     imagePlaceholder: 'code-data',
   },
-  {
-    id: 'youtube-backend',
-    title: 'YouTube Backend Simulation',
-    description:
-      'A comprehensive RESTful API simulating core video platform functionalities, including optimized routes for user management, media handling, and comment threading.',
-    longDescription:
-      'A backend-focused project that models the essential behaviors of a video platform: users, channels, videos, likes, subscriptions, and threaded comments — all exposed as a clean REST API.',
-    problem:
-      'Platforms like YouTube have complex nested data relationships (comments, replies, nested likes) that are non-trivial to model and query efficiently.',
-    solution:
-      'Designed a schema-first backend in Express + MongoDB with properly referenced documents, indexed query paths, and purpose-built endpoints to handle threaded comments and aggregated counts.',
-    tags: ['Node.js', 'Express.js', 'MongoDB', 'REST API'],
-    tagsFull: [
-      { name: 'Node.js', category: 'Runtime' },
-      { name: 'Express.js', category: 'Backend' },
-      { name: 'MongoDB', category: 'Database' },
-      { name: 'REST API', category: 'Protocol' },
-    ],
-    github: 'https://github.com/btwitssparth',
-    featured: false,
-    category: 'backend',
-    keyFeatures: [
-      'RESTful routing for users, videos, comments & subscriptions',
-      'Threaded comment replies with proper nesting',
-      'Optimized query patterns with indexed lookups',
-      'Error handling & consistent response envelopes',
-      'Video metadata + stats aggregation',
-    ],
-    challenges: [
-      'Modeling nested comment replies efficiently',
-      'Keeping like/subscription counts eventually consistent',
-      'Ensuring each endpoint uses indexed queries',
-    ],
-    imagePlaceholder: 'code-api',
-  },
 ];
-
 export const JOURNEY = [
   {
     id: 'education-2023',
@@ -305,15 +315,6 @@ export const JOURNEY = [
     subtitle: 'Featured Full-Stack Project',
     description:
       'Designed and shipped Lend-Sphere, a P2P rental marketplace featuring a custom double-booking prevention engine and realtime chat via WebSockets.',
-    type: 'project',
-  },
-  {
-    id: 'project-taskflow',
-    year: '2024',
-    title: 'Built TaskFlow',
-    subtitle: 'Auth-Focused Full-Stack Project',
-    description:
-      'Engineered a task management platform with JWT auth, refresh-token cookies, role-based access control, and protected endpoints on both client and server.',
     type: 'project',
   },
   {
