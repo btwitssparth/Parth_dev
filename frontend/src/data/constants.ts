@@ -318,15 +318,6 @@ export const JOURNEY = [
     type: 'project',
   },
   {
-    id: 'project-taskflow',
-    year: '2024',
-    title: 'Built TaskFlow',
-    subtitle: 'Auth-Focused Full-Stack Project',
-    description:
-      'Engineered a task management platform with JWT auth, refresh-token cookies, role-based access control, and protected endpoints on both client and server.',
-    type: 'project',
-  },
-  {
     id: 'learning-scraping',
     year: '2025',
     title: 'Python Scraping & Data Pipelines',
