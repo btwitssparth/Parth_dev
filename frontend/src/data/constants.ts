@@ -17,7 +17,7 @@ export const PERSONAL = {
   location: 'Mumbai, India',
   github: 'https://github.com/btwitssparth',
   linkedin: 'https://www.linkedin.com/in/parth-jain-8200aa270/',
-  resume: '/Parth_Jain_CV.pdf',
+  resume: '/Parth_Jain_Resume.pdf',
   status: 'Available for opportunities',
   tagline: 'Building fast, scalable web applications with modern technologies.',
   bio: "I'm Parth Jain, a B.Sc. IT Graduate (Class of 2026) and Full-Stack Developer specializing in the MERN stack. I design complex database architectures, develop RESTful APIs, and integrate real-time functionality to build production-quality applications that solve real-world problems.",
