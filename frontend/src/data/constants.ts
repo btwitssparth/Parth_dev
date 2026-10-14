@@ -171,7 +171,50 @@ export const PROJECTS: Project[] = [
       'Modeling relational data in MongoDB with proper indexing',
     ],
     imagePlaceholder: 'code-marketplace',
-  },,
+  },
+  {
+    id: 'insight-ai',
+    title: 'InsightAI',
+    description:
+      'An AI-powered data analyst that turns CSV and Excel datasets into verified analysis, visualizations, and evidence-backed insights through natural-language questions.',
+    longDescription:
+      'InsightAI is a full-stack data analysis application. Users upload CSV or XLSX datasets, inspect data profiles, and ask questions in natural language. Gemini translates a question into a structured analysis plan, Pydantic validates it, and a Pandas-based engine executes the calculations against the actual dataset before Gemini explains the verified results.',
+    problem:
+      'Using an LLM alone to answer data questions can produce unsupported or incorrect numerical results, while manual exploration of large spreadsheets can be slow and repetitive.',
+    solution:
+      'Designed a multi-stage analysis pipeline that separates AI planning from deterministic computation: structured plans are validated before execution, Pandas calculates the results, and the insight generator explains only the computed output. Supabase provides authentication, PostgreSQL persistence, and private dataset storage.',
+    tags: ['React', 'TypeScript', 'FastAPI', 'Python', 'Pandas', 'Gemini', 'Supabase'],
+    tagsFull: [
+      { name: 'React', category: 'Frontend' },
+      { name: 'TypeScript', category: 'Frontend' },
+      { name: 'FastAPI', category: 'Backend' },
+      { name: 'Python', category: 'Language' },
+      { name: 'Pandas', category: 'Data Analysis' },
+      { name: 'Google Gemini', category: 'AI' },
+      { name: 'Supabase PostgreSQL', category: 'Database' },
+      { name: 'Supabase Storage', category: 'Storage' },
+    ],
+    link: 'https://insight-ai-puce.vercel.app/dashboard',
+    github: 'https://github.com/btwitssparth/InsightAI',
+    featured: true,
+    category: 'fullstack',
+    keyFeatures: [
+      'CSV and XLSX upload with dataset preview, profiling, missing-value and duplicate-row insights',
+      'Natural-language questions translated into validated multi-step analysis plans',
+      'Pandas execution for grouped summaries, filtering, sorting, comparisons, shares, correlations, and time grouping',
+      'Bar, line, and pie visualizations generated from computed results',
+      'Evidence-backed AI explanations and contextual follow-up questions',
+      'Supabase authentication, owner-scoped dataset and analysis access, and private file storage',
+      'Persistent analysis history for revisiting previous questions and results',
+    ],
+    challenges: [
+      'Separating LLM planning and explanation from deterministic numerical computation',
+      'Validating model-generated plans and safely executing supported analysis operations',
+      'Keeping uploaded datasets and analysis records isolated to the authenticated owner',
+      'Handling varied data types, missing values, and Pandas results safely for API responses and visualizations',
+    ],
+    imagePlaceholder: 'code-insight-ai',
+  },
   {
     id: 'ai-resume-optimizer',
     title: 'AI Resume Optimizer',
@@ -212,42 +255,6 @@ export const PROJECTS: Project[] = [
     imagePlaceholder: 'code-resume',
   },
   {
-    id: 'taskflow',
-    title: 'TaskFlow',
-    description:
-      'A scalable task management application featuring robust user authentication, authorization pipelines utilizing JWT, and secure cookie-based sessions.',
-    longDescription:
-      'TaskFlow is a production-grade task management platform focused on secure authentication and clean UX. Users can create projects, organize tasks by status, collaborate through ownership, and stay signed in securely.',
-    problem:
-      'Many beginner task-management apps skip serious auth, session handling, and proper permission checks leading to vulnerable implementations.',
-    solution:
-      'Implemented a complete auth stack with JWT access tokens, refresh tokens in HTTP-only secure cookies, input validation, role-based task ownership checks, and protected API routes.',
-    tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
-    tagsFull: [
-      { name: 'React.js', category: 'Frontend' },
-      { name: 'Node.js', category: 'Runtime' },
-      { name: 'Express.js', category: 'Backend' },
-      { name: 'MongoDB', category: 'Database' },
-      { name: 'JWT', category: 'Auth' },
-    ],
-    github: 'https://github.com/btwitssparth',
-    featured: true,
-    category: 'fullstack',
-    keyFeatures: [
-      'JWT authentication + secure refresh-token cookies',
-      'Project-level role authorization',
-      'CRUD operations for tasks with drag-and-drop status',
-      'Input validation and sanitization on all endpoints',
-      'Protected routes on both client and server',
-    ],
-    challenges: [
-      'Implementing a silent refresh flow without UX flicker',
-      'Ensuring task actions respect ownership scopes',
-      'Balancing session security with practical UX',
-    ],
-    imagePlaceholder: 'code-tasks',
-  },
-  {
     id: 'smart-product-matching',
     title: 'Smart Product Matching Engine',
     description:
@@ -282,7 +289,6 @@ export const PROJECTS: Project[] = [
     imagePlaceholder: 'code-data',
   },
 ];
-
 export const JOURNEY = [
   {
     id: 'education-2023',
