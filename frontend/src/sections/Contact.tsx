@@ -65,31 +65,34 @@ export default function Contact() {
             </div>
 
             <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <motion.button
-                onClick={handleCopy}
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
-                type="button"
-                className="group flex w-full items-center justify-between rounded-xl border border-border bg-muted/40 p-4 text-left transition-colors hover:border-accent/40 hover:bg-muted"
-              >
-                <div>
+              <div className="group flex w-full items-center justify-between rounded-xl border border-border bg-muted/40 p-4 transition-colors hover:border-accent/40 hover:bg-muted">
+                <a
+                  href={`mailto:${PERSONAL.email}`}
+                  className="min-w-0 flex-1 text-left"
+                  aria-label={`Send an email to ${PERSONAL.email}`}
+                >
                   <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
                     Email
                   </p>
                   <p className="mt-1 break-all font-mono text-sm text-foreground">
                     {PERSONAL.email}
                   </p>
-                </div>
-                <Tooltip content={copied ? 'Copied!' : 'Click to copy'}>
-                  <span className="ml-3 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-muted-foreground transition-colors group-hover:border-accent/40 group-hover:text-accent">
+                </a>
+                <Tooltip content={copied ? 'Copied!' : 'Copy email'}>
+                  <button
+                    type="button"
+                    onClick={handleCopy}
+                    aria-label="Copy email address"
+                    className="ml-3 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-muted-foreground transition-colors hover:border-accent/40 hover:text-accent"
+                  >
                     {copied ? (
                       <Check className="h-4 w-4" />
                     ) : (
                       <Copy className="h-4 w-4" />
                     )}
-                  </span>
+                  </button>
                 </Tooltip>
-              </motion.button>
+              </div>
 
               <div className="flex items-start gap-4 rounded-xl border border-border bg-muted/40 p-4">
                 <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-card text-muted-foreground">
